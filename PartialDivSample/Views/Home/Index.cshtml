@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pick a Number</h2>
+<ul>
+    @foreach (int item in ViewBag.Items)
+    {
+        <li><a href="#" onclick="numberClick(@item)">Number @item</a></li>
+    }
+</ul>
+
+<div id="result"></div>
+
+@section scripts {
+    <script type="text/javascript">
+
+        function numberClick(number) {
+            var url = '@Url.Action("GetNumber","Home")?number=' + number;
+
+            $.get(url, function (data) {
+                $('#result').html(data);
+            });
+        }
+
+    </script>
+}
