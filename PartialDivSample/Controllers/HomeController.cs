@@ -13,12 +13,13 @@ namespace PartialDivSample.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Items = Enumerable.Range(1, 10);
+            IEnumerable<string> items = Enumerable.Range(1, 10).Select(x => "Number " + x.ToString());
+            ViewBag.Items = items;
 
             return View();
         }
 
-        public ActionResult GetNumber(int number)
+        public ActionResult GetNumber(string number)
         {
             ViewBag.Number = number;
             return PartialView();

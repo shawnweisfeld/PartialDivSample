@@ -4,9 +4,9 @@
 
 <h2>Pick a Number</h2>
 <ul>
-    @foreach (int item in ViewBag.Items)
+    @foreach (string item in ViewBag.Items)
     {
-        <li><a href="#" onclick="numberClick(@item)">Number @item</a></li>
+        <li><a href="#" onclick="numberClick('@item')">@item</a></li>
     }
 </ul>
 
